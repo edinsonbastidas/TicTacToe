@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GameBean implements Serializable {
-    private static final int GRID_SIZE = 4; // Asegúrate de que esta línea esté
+    private static final int GRID_SIZE = 3; // Asegúrate de que esta línea esté
     // ... resto de enums y variables// Actividad 9
     
     public enum GameState { NULL, O, X }
@@ -68,8 +68,7 @@ public class GameBean implements Serializable {
         for (int i = 0; i < GRID_SIZE; i++) {
             if (gameStatus[i][0] != GameState.NULL &&
                 gameStatus[i][0] == gameStatus[i][1] &&
-                gameStatus[i][1] == gameStatus[i][2] &&
-                gameStatus[i][2] == gameStatus[i][3]) {
+                gameStatus[i][1] == gameStatus[i][2]) {
                 return getPlayerByState(gameStatus[i][0]);
             }
         }
@@ -78,8 +77,7 @@ public class GameBean implements Serializable {
         for (int j = 0; j < GRID_SIZE; j++) {
             if (gameStatus[0][j] != GameState.NULL &&
                 gameStatus[0][j] == gameStatus[1][j] &&
-                gameStatus[1][j] == gameStatus[2][j] &&
-                gameStatus[2][j] == gameStatus[3][j]) {
+                gameStatus[1][j] == gameStatus[2][j]) {
                 return getPlayerByState(gameStatus[0][j]);
             }
         }
@@ -87,17 +85,15 @@ public class GameBean implements Serializable {
         // 3. Diagonal Principal (\)
         if (gameStatus[0][0] != GameState.NULL &&
             gameStatus[0][0] == gameStatus[1][1] &&
-            gameStatus[1][1] == gameStatus[2][2] &&
-            gameStatus[2][2] == gameStatus[3][3]) {
+            gameStatus[1][1] == gameStatus[2][2]) {
             return getPlayerByState(gameStatus[0][0]);
         }
 
         // 4. Diagonal Inversa (/)
-        if (gameStatus[0][3] != GameState.NULL &&
-            gameStatus[0][3] == gameStatus[1][2] &&
-            gameStatus[1][2] == gameStatus[2][1] &&
-            gameStatus[2][1] == gameStatus[3][0]) {
-            return getPlayerByState(gameStatus[0][3]);
+        if (gameStatus[0][2] != GameState.NULL &&
+            gameStatus[0][2] == gameStatus[1][1] &&
+            gameStatus[1][1] == gameStatus[2][0]) {
+            return getPlayerByState(gameStatus[0][2]);
         }
 
         return GamePlayer.NOBODY;
