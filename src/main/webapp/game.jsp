@@ -5,7 +5,7 @@
 <html>
 <head><title>Tablero</title></head>
 <body>
-   <table border="5" style="border-collapse: collapse;">
+   <table border="10" style="border-collapse: collapse;">
     <c:forEach var="line" items="${gameBean.gridLines}">
         <tr>
             <c:forEach var="cell" items="${gameBean.getGridStatus(line)}">
