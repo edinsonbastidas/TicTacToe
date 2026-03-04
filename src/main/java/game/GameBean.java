@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GameBean implements Serializable {
-    private static final int GRID_SIZE = 3; // Asegúrate de que esta línea esté
-    // ... resto de enums y variables// Actividad 9
+    private static final int GRID_SIZE = 9; 
     
     public enum GameState { NULL, O, X }
     
